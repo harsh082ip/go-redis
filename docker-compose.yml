@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+  redis-server:
+    image: 'redis:alpine'
+    networks:
+      - my-network
+  golang-app:
+    build: .
+    ports:
+      - '5001:8001'
+    networks:
+      - my-network
+
+networks:
+  my-network:
